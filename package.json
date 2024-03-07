@@ -13,12 +13,17 @@
     "build": "tsc && vite build",
     "build-keycloak-theme": "yarn build && keycloakify",
     "storybook": "storybook dev -p 6006",
+    "s-uat": "cross-env ENV_FOLDER=uat  yarn storybook",
+    "bs-uat": "cross-env ENV_FOLDER=uat  yarn build-storybook",
+    "s-prod": "cross-env ENV_FOLDER=prod  yarn storybook",
+    "bs-prod": "cross-env ENV_FOLDER=prod  yarn build-storybook",
     "build-storybook": "storybook build"
   },
   "author": "u/garronej",
   "license": "MIT",
   "keywords": [],
   "dependencies": {
+    "cross-env": "^7.0.3",
     "evt": "^2.5.7",
     "keycloakify": "^9.5.8",
     "oidc-spa": "^4.2.1",

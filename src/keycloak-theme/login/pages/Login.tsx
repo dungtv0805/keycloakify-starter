@@ -1,4 +1,4 @@
-import { useState, type FormEventHandler } from "react";
+import { useState, type FormEventHandler, useCallback } from "react";
 import { clsx } from "keycloakify/tools/clsx";
 import { useConstCallback } from "keycloakify/tools/useConstCallback";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
@@ -15,6 +15,7 @@ if (my_custom_param !== null) {
 export default function Login(props: PageProps<Extract<KcContext, { pageId: "login.ftl" }>, I18n>) {
     const { kcContext, i18n, doUseDefaultCss, Template, classes } = props;
 
+    console.log(import.meta.env)
     const { getClassName } = useGetClassName({
         doUseDefaultCss,
         classes
@@ -25,6 +26,10 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
     const { msg, msgStr } = i18n;
 
     const [isLoginButtonDisabled, setIsLoginButtonDisabled] = useState(false);
+
+    const loginSharepoint = useCallback(() => {
+
+    }, [])
 
     const onSubmit = useConstCallback<FormEventHandler<HTMLFormElement>>(e => {
         e.preventDefault();
